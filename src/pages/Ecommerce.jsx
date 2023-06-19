@@ -11,6 +11,7 @@ import product9 from '../data/product9.jpg';
 
 
 const Ecommerce = () => {
+  const {currentColor} = useStateContext();
   return (
     <div className="w-full mt-24">
       <div className="flex flex-col items-center">
@@ -26,7 +27,7 @@ const Ecommerce = () => {
           <div className="mt-6">
             <Button
               color="white"
-              bgColor="blue"
+              bgColor={currentColor}
               text="download"
               borderRadius="10px"
               size="medium"
@@ -98,7 +99,7 @@ const Ecommerce = () => {
               <div className="mt-10">
                 <Button
                   color="white"
-                  bgColor='blue'
+                  bgColor={currentColor}
                   text="Download Report"
                   borderRadius="10px"
                 />

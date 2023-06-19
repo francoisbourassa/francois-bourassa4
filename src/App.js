@@ -10,10 +10,10 @@ import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Ka
 import { useStateContext } from './contexts/ContextProvider';
 
 const App = () => {
-  const {  activeMenu } = useStateContext();
+  const {  activeMenu,themeSettings, setThemeSettings, currentColor, currentMode } = useStateContext();
 
   return (
-    <div>
+    <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <BrowserRouter>
         <div className="relative flex dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{ zIndex: '1000' }}>
@@ -23,6 +23,8 @@ const App = () => {
             >
               <button
                 type="button"
+                onClick={() => setThemeSettings(true)}
+                style={{ background: currentColor, borderRadius: '50%' }}
                 className="p-3 text-3xl text-white hover:drop-shadow-xl hover:bg-light-gray"
               >
                 <FiSettings />
@@ -51,7 +53,7 @@ const App = () => {
             
 
           <div>
-            <ThemeSettings/>
+          {themeSettings && (<ThemeSettings />)}
             
           <Routes>
                  {/* dashboard  */}
